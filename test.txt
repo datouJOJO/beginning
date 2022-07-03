@@ -1,3 +1,4 @@
 This is a test file
-This version is 3.0
+This version is 4.0
 Ok and not ok
+fix bug
