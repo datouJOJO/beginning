@@ -1,0 +1,49 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.53.121.199:3306/blogtest?serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: 62591102
+  redis:
+    host: 120.53.121.199
+    port: 6379
+    timeout: 5000
+    password: 62591102
+  mail:
+    host: smtp.qq.com
+    username: 765327432@qq.com
+    password: yiuqtclcztfdbfeb
+    default-encoding: UTF-8
+    port: 587
+    properties:
+      mail:
+        smtp:
+        auth: true
+        socketFactory:
+        class: javax.net.ssl.SSLSocketFactory
+  #RabbitMQ配置
+  rabbitmq:
+    host: 120.53.121.199
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3 #最大重试次数
+          initial-interval: 3000 #重试间隔时间（单位毫秒）
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    #在控制台打印日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #自动将查询数据库的字段带下划线的属性转成对应实体类VO中驼峰命名的属性
+    map-underscore-to-camel-case: true
+
+# 搜索模式 可选elasticsearch也可以mysql
+search:
+  mode: mysql
+
